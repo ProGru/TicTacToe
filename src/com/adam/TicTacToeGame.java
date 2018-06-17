@@ -47,6 +47,7 @@ public class TicTacToeGame {
                 System.out.println("Wpisz dokładnie!");
                 imputFromPlayers();
             }else{
+
                 int[] parseInput = new int[0];
 
                 try {
@@ -54,7 +55,14 @@ public class TicTacToeGame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                ticTacToeMap.placeCross(parseInput[0],parseInput[1]);
+                if (ticTacToeMap.getItemInPosition(parseInput[0],parseInput[1])=='.') {
+
+                    ticTacToeMap.placeCross(parseInput[0],parseInput[1]);
+                }else{
+                    showMap();
+                    System.out.println("Zajete miejsce wybierz inne!");
+                    imputFromPlayers();
+                }
             }
         }else {
             System.out.print("Prosze podać pozycje [O] A-C,1-3:");
@@ -64,6 +72,7 @@ public class TicTacToeGame {
                 System.out.println("Wpisz dokładnie!");
                 imputFromPlayers();
             }else{
+
                 int[] parseInput = new int[0];
 
                 try {
@@ -71,7 +80,14 @@ public class TicTacToeGame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                ticTacToeMap.placeCircle(parseInput[0],parseInput[1]);
+                if (ticTacToeMap.getItemInPosition(parseInput[0],parseInput[1])=='.') {
+
+                    ticTacToeMap.placeCircle(parseInput[0], parseInput[1]);
+                }else{
+                    showMap();
+                    System.out.println("Zajete miejsce wybierz inne!");
+                    imputFromPlayers();
+                }
             }
         }
     }
