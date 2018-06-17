@@ -101,31 +101,33 @@ public class TicTacToeGame {
             tekst = userInput.split(" ");
         }
 
-
-        if (tekst.length==2) {
-            if (tekst[0].equalsIgnoreCase("A")
-                    || tekst[0].equalsIgnoreCase("B")
-                    || tekst[0].equalsIgnoreCase("C")) {
-                if (Integer.parseInt(tekst[1]) <= 3 || Integer.parseInt(tekst[0]) <= 3) {
-                    return true;
+        try {
+            if (tekst.length == 2) {
+                if ((tekst[0].equalsIgnoreCase("A")
+                        || tekst[0].equalsIgnoreCase("B")
+                        || tekst[0].equalsIgnoreCase("C"))) {
+                    if (Integer.parseInt(tekst[1]) <= 3 || Integer.parseInt(tekst[0]) <= 3) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if (tekst[1].equalsIgnoreCase("A")
+                        || tekst[1].equalsIgnoreCase("B")
+                        || tekst[1].equalsIgnoreCase("C")) {
+                    if (Integer.parseInt(tekst[0]) <= 3) {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 } else {
                     return false;
                 }
-            } else if (tekst[1].equalsIgnoreCase("A")
-                    || tekst[1].equalsIgnoreCase("B")
-                    || tekst[1].equalsIgnoreCase("C")) {
-                if ( Integer.parseInt(tekst[0]) <= 3) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }else {
+            } else {
                 return false;
             }
-        }else {
+        }catch (NumberFormatException e){
             return false;
         }
-
     }
 
     public int[] userInputParser(String userInput) throws Exception {
